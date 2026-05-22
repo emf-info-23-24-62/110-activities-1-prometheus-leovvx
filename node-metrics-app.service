@@ -1,0 +1,15 @@
+[Unit]
+Description=Node metrics demo app
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/node-metrics-app
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node /opt/node-metrics-app/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
